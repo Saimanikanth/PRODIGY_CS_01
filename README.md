@@ -1,37 +1,10 @@
 # PRODIGY_CS_01
-def caesar_cipher(text, shift, encrypt=True):
-    result = ""
-    if not encrypt:
-        shift = -shift
-    for char in text:
-        if char.isalpha():
-            shift_amount = shift % 26
-            if char.islower():
-                base = ord('a')
-                result += chr((ord(char) - base + shift_amount) % 26 + base)
-            elif char.isupper():
-                base = ord('A')
-                result += chr((ord(char) - base + shift_amount) % 26 + base)
-        else:
-            result += char
-    return result
+The Caesar cipher is a basic encryption technique where each letter in the plaintext is shifted a certain number of places down or up the alphabet. For example, with a shift of 1, A would be replaced by B, B would become C, and so on. The method is named after Julius Caesar, who is said to have used it to communicate with his generals.
+Here's an example with a shift of 3:
 
-def main():
-    print("Caesar Cipher Encryption/Decryption")
-    choice = input("Would you like to (e)ncrypt or (d)ecrypt? ").lower()
-    if choice not in ['e', 'd']:
-        print("Invalid choice! Please enter 'e' to encrypt or 'd' to decrypt.")
-        return
-    
-    text = input("Enter your message: ")
-    shift = int(input("Enter shift value: "))
-    
-    if choice == 'e':
-        encrypted_text = caesar_cipher(text, shift, encrypt=True)
-        print(f"Encrypted message: {encrypted_text}")
-    elif choice == 'd':
-        decrypted_text = caesar_cipher(text, shift, encrypt=False)
-        print(f"Decrypted message: {decrypted_text}")
+Original: HELLO
+Encrypted: KHOOR
 
-if __name__ == "__main__":
-    main()
+In this case, each letter in "HELLO" is shifted by 3 positions to the right in the alphabet, resulting in "KHOOR".
+To decrypt, you simply reverse the process by shifting the letters back by the same number of positions.
+It's a straightforward method, but also quite easy to crack without additional complexity or techniques.
